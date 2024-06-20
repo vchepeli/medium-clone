@@ -4,6 +4,7 @@ import {Observable, map} from 'rxjs'
 import {CurrentUserInterface} from '../../shared/types/current-user.interface'
 import {HttpClient} from '@angular/common/http'
 import {AuthResponseInterface} from '../types/auth-response.interface'
+import {LoginRequestInterface} from '../types/login-request.interface'
 
 @Injectable()
 export class AuthService {
@@ -11,9 +12,15 @@ export class AuthService {
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     const url = 'https://conduit.productionready.io/api/users' //todo use ENV variables
+    return this.httpClient.post<AuthResponseInterface>(url, data).pipe(map(this.getUser))
+  }
 
-    return this.httpClient
-      .post<AuthResponseInterface>(url, data)
-      .pipe(map((response: AuthResponseInterface) => response.user))
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    const url = 'https://conduit.productionready.io/api/users/login' //todo use ENV variables
+    return this.httpClient.post<AuthResponseInterface>(url, data).pipe(map(this.getUser))
+  }
+
+  getUser(response: AuthResponseInterface) {
+    return response.user
   }
 }

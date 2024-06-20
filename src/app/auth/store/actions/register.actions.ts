@@ -9,4 +9,7 @@ export const registerSuccessAction = createAction(
   ActionTypes.REGISTER_SUCCESS,
   props<{currentUser: CurrentUserInterface}>()
 )
-export const registerFailureAction = createAction(ActionTypes.REGISTER_FAILURE, props<{errors: BackendErrorsInterface}>())
+export const registerFailureAction = createAction(
+  ActionTypes.REGISTER_FAILURE,
+  props<{errors: BackendErrorsInterface}>()
+)

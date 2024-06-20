@@ -8,6 +8,7 @@ import {StoreModule} from '@ngrx/store'
 import {StoreDevtoolsModule} from '@ngrx/store-devtools'
 import {HttpClientModule} from '@angular/common/http'
 import {EffectsModule} from '@ngrx/effects'
+import { TopBarModule } from './shared/modules/top-bar/top-bar.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import {EffectsModule} from '@ngrx/effects'
       maxAge: 25,
       logOnly: true, //todo production: false, development: true
     }),
+    TopBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

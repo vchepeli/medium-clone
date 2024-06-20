@@ -12,6 +12,7 @@ import {BackendErrorMessagesModule} from '../shared/modules/backend-error-messag
 import {PersistanceService} from '../shared/services/persistance.service'
 import {LoginEffect} from './store/effects/login.effect'
 import {LoginComponent} from './components/login/login.component'
+import {GetCurrentUserEffect} from './store/effects/get-current-user.effect'
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect, GetCurrentUserEffect]),
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),

@@ -23,4 +23,10 @@ export class AuthService {
   getUser(response: AuthResponseInterface) {
     return response.user
   }
+
+  getCurrentUser(): Observable<CurrentUserInterface> {
+    const url = 'https://conduit.productionready.io/api/user' //todo use ENV variables
+
+    return this.httpClient.get(url).pipe(map(this.getUser))
+  }
 }

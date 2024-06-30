@@ -8,7 +8,9 @@ import {getCurrentUserAction} from './auth/store/actions/get-current-user.action
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  
   constructor(private store: Store) {}
+
   ngOnInit(): void {
     this.store.dispatch(getCurrentUserAction())
   }
